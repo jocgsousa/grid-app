@@ -7,8 +7,8 @@ export const animations = {
         to {opacity: 1; margin-left: 0px; margin-right: 0px;}
     `,
     rotate: () => keyframes`
-        from {transform: rotate(0deg);}
-        to {transform: rotate(360deg);}
+        from {transform: rotateX(0deg);}
+        to {transform: rotateX(360deg);}
     `,
     shake: () => keyframes`
         0% { margin-right: 0px; margin-left: 0px;}
@@ -36,6 +36,15 @@ export const animations = {
     none: () => keyframes`
          from {opacity: 1; margin-left: 0px; margin-right: 0px;}
         to {opacity: 1; margin-left: 0px; margin-right: 0px;}
+    `,
+    // Adicone aqui novas animações! =)
+
+    pular: () => keyframes`
+        0% {margin-top: 0px; margin-bottom: 0px; }
+        25% {margin-top: 5px; margin-bottom: -5px;  }
+        50% {margin-top: -5px; margin-bottom: 5px;}
+        75%{ margin-top: 5px; margin-bottom: -5px;}
+        100%{margin-top: 0px; margin-bottom: 0px;  }
     `,
 };
 

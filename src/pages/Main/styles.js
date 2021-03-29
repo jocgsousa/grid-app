@@ -1,11 +1,16 @@
+// Importamos a lib utilizada para manipular o css dentro do JavaScript - https://styled-components.com/docs
 import styled from 'styled-components';
+// Importamos uma lib utilizada para manipular cores e stados do css - https://polished.js.org/docs/
 import { darken } from 'polished';
+// Importamos um icone da lib react-icons - https://react-icons.github.io/react-icons/
 import { FaReact } from 'react-icons/fa';
+// importamos as configurações do arquivo  animations.js
 import {
     animations,
     media,
     animateState,
 } from '../../styles/animations/animations';
+
 import BaseAnimation from '../../styles/animations/baseAnimation';
 
 export const Container = styled(BaseAnimation)`

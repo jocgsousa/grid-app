@@ -55,8 +55,8 @@ export default class Main extends Component {
                     <h2>
                         ENTRAR - SIAS{' '}
                         <IconReact
-                            animation="rotate"
-                            duration="5s"
+                            animation="pular"
+                            duration="2s"
                             iterationCount="infinite"
                             timingFunction="linear"
                         />
