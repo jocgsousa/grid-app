@@ -9,9 +9,8 @@ import {
     animations,
     media,
     animateState,
+    BaseAnimation,
 } from '../../styles/animations/animations';
-
-import BaseAnimation from '../../styles/animations/baseAnimation';
 
 export const Container = styled(BaseAnimation)`
     display: flex;

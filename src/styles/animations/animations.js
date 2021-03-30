@@ -1,5 +1,27 @@
-import { keyframes, css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
+// Aqui criamos nosso componente base
+export const BaseAnimation = styled.div`
+    animation-duration: ${(props) => props.duration};
+    animation-timing-function: ${(props) => props.timingFunction};
+    animation-delay: ${(props) => props.delay};
+    animation-iteration-count: ${(props) => props.iterationCount};
+    animation-direction: ${(props) => props.direction};
+    animation-fill-mode: ${(props) => props.fillMode};
+    animation-play-state: ${(props) => props.playState};
+    display: ${(props) => props.display};
+`;
+// Atribuímos alguns valores por padrão
+BaseAnimation.defaultProps = {
+    duration: '1s',
+    timingFunction: 'ease',
+    delay: '0s',
+    iterationCount: '1',
+    direction: 'normal',
+    fillMode: 'both',
+    playState: 'running',
+    display: 'block',
+};
 // Aqui vai algumas das animações básicas, podendo ser criadas novas pelo dev
 export const animations = {
     fadeInLeft: () => keyframes`
@@ -7,8 +29,12 @@ export const animations = {
         to {opacity: 1; margin-left: 0px; margin-right: 0px;}
     `,
     rotate: () => keyframes`
-        from {transform: rotateX(0deg);}
-        to {transform: rotateX(180deg);}
+        0% {transform: rotateX(90deg);}
+        25% {transform: rotateX(0deg);}
+        50% {transform: rotateY(90deg);}
+        75% {transform: rotateY(0deg);}
+        100% {transform: rotateX(90deg);}
+        
     `,
     shake: () => keyframes`
         0% { margin-right: 0px; margin-left: 0px;}
@@ -73,11 +99,19 @@ export const media = {
             font-size: 15px;
         }
     `,
+
+    grid: () => `
+        @media(min-width: 600px){
+            flex-direction: row;
+        }
+        @media(max-width: 700px){
+            flex-direction: column;
+        }
+    `,
 };
 
-// Export configuração para aplicar animação em qualquer componente que receber
+// Exporta configuração para aplicar animação em qualquer componente que receber
 export const animateState = css`
-    margin-left: 4px;
     animation-duration: ${(props) => props.duration};
     animation-timing-function: ${(props) => props.timingFunction};
     animation-delay: ${(props) => props.delay};
@@ -87,3 +121,14 @@ export const animateState = css`
     animation-play-state: ${(props) => props.playState};
     display: ${(props) => props.display};
 `;
+
+animateState.defaultProps = {
+    duration: '1s',
+    timingFunction: 'ease',
+    delay: '0s',
+    iterationCount: '1',
+    direction: 'normal',
+    fillMode: 'both',
+    playState: 'running',
+    display: 'block',
+};

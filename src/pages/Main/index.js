@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BallSpinner } from 'react-spinners-kit';
+import { Redirect } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -19,6 +20,7 @@ export default class Main extends Component {
         user: '',
         auth: false,
         loading: false,
+        redirect: false,
     };
 
     handleInput = (e) => {
@@ -37,6 +39,9 @@ export default class Main extends Component {
                 animate: 'fadeOutRight',
                 loading: false,
             });
+            setTimeout(() => {
+                this.setState({ redirect: true });
+            }, 1000);
         } catch (error) {
             console.log(error.response.data.error);
             this.setState({ auth: true, animate: 'shake', loading: false });
@@ -44,18 +49,19 @@ export default class Main extends Component {
     };
 
     render() {
-        const { animate, auth, user, loading } = this.state;
+        const { animate, auth, user, loading, redirect } = this.state;
         return (
             <Container
                 animation={animate}
                 delay={auth ? '0s' : '1s'}
                 duration={auth ? '0.5s' : '1s'}
             >
+                {redirect ? <Redirect to="/dashboard" /> : ''}
                 <Form onSubmit={this.handleLogin}>
                     <h2>
                         ENTRAR - SIAS{' '}
                         <IconReact
-                            animation="pular"
+                            animation="rotate"
                             duration="2s"
                             iterationCount="infinite"
                             timingFunction="linear"
