@@ -18,6 +18,7 @@ export const Grid = styled.div``;
 
 export const Row = styled.div`
     display: flex;
+    padding: ${(props) => props.padding && props.padding};
     ${media.grid}
 `;
 
@@ -25,6 +26,7 @@ export const Col = styled.div`
     flex: ${(props) => props.size && props.size};
     min-height: 40px;
     display: flex;
+    width: ${(props) => props.width && props.width};
     justify-content: ${(props) =>
         props.justifyContent ? props.justifyContent : 'center'};
     align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
@@ -66,6 +68,29 @@ export const Button = styled.button.attrs({
     background-color: ${(props) =>
         props.background ? props.background : '#7159c1'};
     width: ${(props) => (props.width ? props.width : '80px')};
+    height: ${(props) => (props.height ? props.height : '40px')};
+    padding: ${(props) => (props.padding ? props.padding : '5px')};
+    margin: ${(props) => (props.margin ? props.margin : '10px')};
+    /* default */
+    border: ${(props) => (props.border ? props.border : 'none')};
+    border-radius: ${(props) => (props.radius ? props.radius : '4px')};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => (props.color ? props.color : 'white')};
+    transition: all 0.5s;
+    &:hover {
+        background: ${(props) =>
+            props.background
+                ? darken(0.05, props.background)
+                : darken(0.5, '#7159c1')};
+    }
+`;
+
+export const Box = styled(BaseAnimation)`
+    background-color: ${(props) =>
+        props.background ? props.background : '#7159c1'};
+    width: ${(props) => (props.width ? props.width : '200px')};
     height: ${(props) => (props.height ? props.height : '40px')};
     padding: ${(props) => (props.padding ? props.padding : '5px')};
     margin: ${(props) => (props.margin ? props.margin : '10px')};
