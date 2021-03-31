@@ -10,16 +10,19 @@ import {
 } from '../styles/animations/animations';
 
 export const Container = styled(BaseAnimation)`
+    height: ${(props) => (props.height ? props.height : '')};
     animation-name: ${(props) =>
         props.animation && animations[props.animation]};
 `;
 
-export const Grid = styled.div``;
+export const Grid = styled(BaseAnimation)``;
 
-export const Row = styled.div`
+export const Row = styled(BaseAnimation)`
     display: flex;
     padding: ${(props) => props.padding && props.padding};
     ${media.grid}
+    animation-name: ${(props) =>
+        props.animation && animations[props.animation]};
 `;
 
 export const Col = styled.div`
@@ -44,7 +47,6 @@ export const Col = styled.div`
     border-bottom: ${(props) => props.borderBottom && props.borderBottom};
     padding: 5px;
     border-radius: ${(props) => props.radius && props.radius};
-    transition: all 0.5s;
 `;
 
 export const NavBar = styled.nav`

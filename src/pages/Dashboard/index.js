@@ -17,13 +17,83 @@ import {
     Button,
 } from '../../components';
 
-import { Box } from './styles';
+// Import Components for render options
+import Home from '../../components/content/Home';
+
+// Import file styles
+import {} from './styles';
 
 export default class Dashboard extends Component {
     state = {
         logout: false,
         animate: 'fadeInLeft',
+        option: 0,
+        chartData: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abri', 'Mai', 'Jun'],
+
+            datasets: [
+                // Primeira line
+                {
+                    label: ['Linha de compra '],
+                    data: ['50', '70', '57', '59', '80', '60'],
+                    fontColor: 'white',
+                    backgroundColor: [
+                        'rgba(123,23,12,0.1)',
+                        'rgba(153,204,255,0.6)',
+                        'rgba(193, 92, 212, 0.5)',
+                        'rgba(255, 138, 76, 0.5)',
+                        'rgba(76, 87, 255, 0.5)',
+                        'rgba(76, 255, 79, 0.6)',
+                    ],
+                    borderWidth: '1',
+                    borderColor: 'red',
+                    hoverBorderWidth: 3,
+                    // eslint-disable-next-line no-dupe-keys
+                    backgroundColor: 'rgba(153,204,255,0.0)',
+                },
+                // segunda Line
+                {
+                    label: ['Linha de venda    '],
+                    data: ['20', '40', '45', '54', '70', '49'],
+                    backgroundColor: [
+                        'rgba(123,23,12,0.1)',
+                        'rgba(153,204,255,0.6)',
+                        'rgba(193, 92, 212, 0.5)',
+                        'rgba(255, 138, 76, 0.5)',
+                        'rgba(76, 87, 255, 0.5)',
+                        'rgba(76, 255, 79, 0.6)',
+                    ],
+                    borderWidth: '1',
+                    borderColor: 'green',
+                    hoverBorderWidth: 4,
+                    // eslint-disable-next-line no-dupe-keys
+                    backgroundColor: 'rgba(153,204,255,0.0)',
+                },
+                // Terceira Line
+                {
+                    label: ['Margem de perda'],
+                    data: ['28', '48', '50', '78', '60', '56'],
+                    backgroundColor: [
+                        'rgba(123,23,12,0.1)',
+                        'rgba(153,204,255,0.6)',
+                        'rgba(193, 92, 212, 0.5)',
+                        'rgba(255, 138, 76, 0.5)',
+                        'rgba(76, 87, 255, 0.5)',
+                        'rgba(76, 255, 79, 0.6)',
+                    ],
+                    borderWidth: '1',
+                    borderColor: 'purple',
+                    hoverBorderWidth: 4,
+                    // eslint-disable-next-line no-dupe-keys
+                    backgroundColor: 'rgba(153,204,255,0.0)',
+                },
+            ],
+        },
     };
+
+    componentDidMount() {
+        this.setState({ option: 1 });
+    }
 
     logout = () => {
         this.setState({ animate: 'fadeOutRight' });
@@ -33,11 +103,29 @@ export default class Dashboard extends Component {
         }, 1500);
     };
 
+    // eslint-disable-next-line consistent-return
+    handleContent = () => {
+        const { option, chartData } = this.state;
+
+        if (option === 1) {
+            return <Home animation="fadeInLeft" chartData={chartData} />;
+        }
+    };
+
+    selectOption = (e) => {
+        this.setState({ option: e });
+    };
+
     render() {
         const { logout, animate } = this.state;
 
         return (
-            <Container animation={animate} delay="0.5s" duration="1s">
+            <Container
+                height="100vh"
+                animation={animate}
+                delay="0.5s"
+                duration="1s"
+            >
                 {logout && <Redirect to="/" />}
                 <Row>
                     <Col
@@ -58,9 +146,10 @@ export default class Dashboard extends Component {
                         justifyContent="top"
                         padding="10px"
                         size={1}
-                        height="100vh"
+                        height="110vh"
                     >
                         <Button
+                            onClick={() => this.selectOption(1)}
                             background="#5c5c96"
                             height="70px"
                             type="buttom"
@@ -68,6 +157,7 @@ export default class Dashboard extends Component {
                             <FaHome size={20} color="#FFF" />
                         </Button>
                         <Button
+                            onClick={() => this.selectOption(2)}
                             background="#5c5c96"
                             height="70px"
                             type="buttom"
@@ -75,6 +165,7 @@ export default class Dashboard extends Component {
                             <FaRegChartBar size={20} color="#FFF" />
                         </Button>
                         <Button
+                            onClick={() => this.selectOption(3)}
                             background="#5c5c96"
                             height="70px"
                             type="buttom"
@@ -82,6 +173,7 @@ export default class Dashboard extends Component {
                             <FaKey size={20} color="#FFF" />
                         </Button>
                         <Button
+                            onClick={() => this.selectOption(4)}
                             background="#5c5c96"
                             height="70px"
                             type="buttom"
@@ -89,6 +181,7 @@ export default class Dashboard extends Component {
                             <FaChild size={20} color="#FFF" />
                         </Button>
                         <Button
+                            onClick={() => this.selectOption(5)}
                             background="#5c5c96"
                             height="70px"
                             type="buttom"
@@ -106,55 +199,7 @@ export default class Dashboard extends Component {
                     </Col>
                     {/* Segunda coluna */}
                     <Col background="dark" justifyContent="top" size={12}>
-                        <Row>
-                            <Col radius="4px" margin="10px" size={12}>
-                                <Box background="transparent">
-                                    <h1>Serviços</h1>
-                                    <hr />
-                                    <strong>Ativos: 5</strong>
-                                    <strong>Desativados: 10</strong>
-                                    <strong>Desenvolvidos: 10</strong>
-                                    <hr />
-                                </Box>
-                            </Col>
-                            <Col radius="4px" margin="10px" size={12}>
-                                <Box background="transparent">
-                                    <h1>Processos</h1>
-                                    <hr />
-                                    <strong>Entrada: 5</strong>
-                                    <strong>Encaminhados: 10</strong>
-                                    <strong>Revisão: 12</strong>
-                                    <hr />
-                                </Box>
-                            </Col>
-                            <Col radius="4px" margin="10px" size={12}>
-                                <Box background="transparent">
-                                    <h1>Encaminhamentos</h1>
-                                    <hr />
-                                    <strong>SEASPAC: 5</strong>
-                                    <strong>CT: 10</strong>
-                                    <strong>CREAS: 12</strong>
-                                    <hr />
-                                </Box>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col radius="4px" margin="10px" size={12}>
-                                <Box background="transparent">
-                                    <h1>Gastos mensais</h1>
-                                    <hr />
-                                    <strong>SEASPAC: 5</strong>
-                                    <strong>CT: 10</strong>
-                                    <strong>CREAS: 12</strong>
-                                    <hr />
-                                </Box>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col radius="4px" margin="10px" size={12}>
-                                <Box background="transparent">Item 1</Box>
-                            </Col>
-                        </Row>
+                        {this.handleContent()}
                     </Col>
                 </Row>
             </Container>

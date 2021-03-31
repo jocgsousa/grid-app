@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
-import { BaseAnimation } from '../../styles/animations/animations';
+import { BaseAnimation } from '../../../styles/animations/animations';
 
 export const Box = styled(BaseAnimation)`
     background-color: ${(props) =>
