@@ -8,7 +8,7 @@ import {
     Container,
     Form,
     NickInput,
-    PasswordInput,
+    // PasswordInput,
     IconReact,
     ButtonLogin,
     ButtonLoginText,
@@ -59,7 +59,7 @@ export default class Main extends Component {
                 {redirect ? <Redirect to="/dashboard" /> : ''}
                 <Form onSubmit={this.handleLogin}>
                     <h2>
-                        ENTRAR - SIAS{' '}
+                        ENTRAR GIT USER{' '}
                         <IconReact
                             animation="rotate"
                             duration="2s"
@@ -68,7 +68,7 @@ export default class Main extends Component {
                         />
                     </h2>
                     <NickInput onChange={this.handleInput} value={user} />
-                    <PasswordInput />
+                    {/* <PasswordInput /> */}
                     <ButtonLogin>
                         <ButtonLoginText>
                             {loading ? (

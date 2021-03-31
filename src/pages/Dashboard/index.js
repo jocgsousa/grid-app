@@ -15,8 +15,9 @@ import {
     NavBar,
     ContainerLogo,
     Button,
-    Box,
 } from '../../components';
+
+import { Box } from './styles';
 
 export default class Dashboard extends Component {
     state = {
@@ -46,7 +47,7 @@ export default class Dashboard extends Component {
                     >
                         <NavBar>
                             <ContainerLogo>
-                                <h1>SIAS</h1>
+                                <h1>User - GIT</h1>
                             </ContainerLogo>
                         </NavBar>
                     </Col>
@@ -106,17 +107,52 @@ export default class Dashboard extends Component {
                     {/* Segunda coluna */}
                     <Col background="dark" justifyContent="top" size={12}>
                         <Row>
-                            <Col margin="10px" size={12}>
-                                <Box>Item 1</Box>
+                            <Col radius="4px" margin="10px" size={12}>
+                                <Box background="transparent">
+                                    <h1>Serviços</h1>
+                                    <hr />
+                                    <strong>Ativos: 5</strong>
+                                    <strong>Desativados: 10</strong>
+                                    <strong>Desenvolvidos: 10</strong>
+                                    <hr />
+                                </Box>
                             </Col>
-                            <Col margin="10px" size={12}>
-                                <Box>Item 1</Box>
+                            <Col radius="4px" margin="10px" size={12}>
+                                <Box background="transparent">
+                                    <h1>Processos</h1>
+                                    <hr />
+                                    <strong>Entrada: 5</strong>
+                                    <strong>Encaminhados: 10</strong>
+                                    <strong>Revisão: 12</strong>
+                                    <hr />
+                                </Box>
                             </Col>
-                            <Col margin="10px" size={12}>
-                                <Box>Item 1</Box>
+                            <Col radius="4px" margin="10px" size={12}>
+                                <Box background="transparent">
+                                    <h1>Encaminhamentos</h1>
+                                    <hr />
+                                    <strong>SEASPAC: 5</strong>
+                                    <strong>CT: 10</strong>
+                                    <strong>CREAS: 12</strong>
+                                    <hr />
+                                </Box>
                             </Col>
-                            <Col margin="10px" size={12}>
-                                <Box>Item 1</Box>
+                        </Row>
+                        <Row>
+                            <Col radius="4px" margin="10px" size={12}>
+                                <Box background="transparent">
+                                    <h1>Gastos mensais</h1>
+                                    <hr />
+                                    <strong>SEASPAC: 5</strong>
+                                    <strong>CT: 10</strong>
+                                    <strong>CREAS: 12</strong>
+                                    <hr />
+                                </Box>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col radius="4px" margin="10px" size={12}>
+                                <Box background="transparent">Item 1</Box>
                             </Col>
                         </Row>
                     </Col>

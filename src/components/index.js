@@ -25,7 +25,7 @@ export const Row = styled.div`
 export const Col = styled.div`
     flex: ${(props) => props.size && props.size};
     min-height: 40px;
-    display: flex;
+    /* display: flex; */
     width: ${(props) => props.width && props.width};
     justify-content: ${(props) =>
         props.justifyContent ? props.justifyContent : 'center'};
@@ -90,7 +90,8 @@ export const Button = styled.button.attrs({
 export const Box = styled(BaseAnimation)`
     background-color: ${(props) =>
         props.background ? props.background : '#7159c1'};
-    width: ${(props) => (props.width ? props.width : '200px')};
+    /* width: ${(props) => (props.width ? props.width : '300px')}; */
+    flex: ${(props) => props.size && props.size};
     height: ${(props) => (props.height ? props.height : '40px')};
     padding: ${(props) => (props.padding ? props.padding : '5px')};
     margin: ${(props) => (props.margin ? props.margin : '10px')};

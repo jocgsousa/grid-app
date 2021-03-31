@@ -29,11 +29,8 @@ export const animations = {
         to {opacity: 1; margin-left: 0px; margin-right: 0px;}
     `,
     rotate: () => keyframes`
-        0% {transform: rotateX(90deg);}
-        25% {transform: rotateX(0deg);}
-        50% {transform: rotateY(90deg);}
-        75% {transform: rotateY(0deg);}
-        100% {transform: rotateX(90deg);}
+        from {transform: rotate(0deg)}
+        to {transform: rotate(360deg)}
         
     `,
     shake: () => keyframes`
