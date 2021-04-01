@@ -28,7 +28,7 @@ export const Row = styled(BaseAnimation)`
 export const Col = styled.div`
     flex: ${(props) => props.size && props.size};
     min-height: 40px;
-    /* display: flex; */
+    display: ${(props) => (props.display ? props.display : '')};
     width: ${(props) => props.width && props.width};
     justify-content: ${(props) =>
         props.justifyContent ? props.justifyContent : 'center'};
@@ -47,6 +47,7 @@ export const Col = styled.div`
     border-bottom: ${(props) => props.borderBottom && props.borderBottom};
     padding: 5px;
     border-radius: ${(props) => props.radius && props.radius};
+    ${(props) => (props.grid ? media[props.grid] : '')}
 `;
 
 export const NavBar = styled.nav`
@@ -77,6 +78,7 @@ export const Button = styled.button.attrs({
     border: ${(props) => (props.border ? props.border : 'none')};
     border-radius: ${(props) => (props.radius ? props.radius : '4px')};
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: ${(props) => (props.color ? props.color : 'white')};

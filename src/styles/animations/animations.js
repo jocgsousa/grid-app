@@ -105,6 +105,24 @@ export const media = {
             flex-direction: column;
         }
     `,
+    navbar: () => `
+    @media(min-width: 300px){
+        display: none;
+    }
+    @media(min-width: 800px){
+        display: block;
+    }
+    @media(max-width: 700px){
+        dsplay: none;
+    }
+    @media(max-width: 280px){
+        display: none;
+    }
+    @media(max-width: 200px){
+        display: none;
+        opacity: 0;
+    }
+`,
 };
 
 // Exporta configuração para aplicar animação em qualquer componente que receber

@@ -31,5 +31,6 @@ module.exports = {
         'jsx-a11y/alt-text': 'off',
         'react/jsx-props-no-spreading': 'off',
         'consistent-return': 'off',
+        'no-return-assign': 'off',
     },
 };
